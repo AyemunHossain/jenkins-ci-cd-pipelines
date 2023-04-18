@@ -1,0 +1,31 @@
+pipeline {
+  agent any
+  stages {
+        
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/AyemunHossain/jenkins-ci-cd-pipelines'
+      }
+    }
+        
+    stage('Install dependencies') {
+      steps {
+        nodejs(nodeJSInstallationName: 'nodejs18.15.0'){
+            sh 'npm install'
+        }
+      }
+    }
+    stage('Server Restart') {
+      steps {
+            sh 'sudo chmod -R 777 myscript.sh'
+            sh 'sudo ./myscript.sh'
+      }
+    }
+     
+    // stage('Test') {
+    //   steps {
+    //      sh 'whoami'
+    //   }
+    // }   
+  }
+}
