@@ -29,7 +29,7 @@ if (cluster.isMaster) {
 
 function runServer(){
   app.get('/', (req, res) => {
-    res.send('This is a response from jenkins ci/cd server, automated push....7')
+    res.send('This is a response from jenkins ci/cd server, automated push....8')
   })
 
   app.get('/api/slow', function (req, res) {
